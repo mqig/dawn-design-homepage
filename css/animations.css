@@ -1,0 +1,364 @@
+/* 动画效果 */
+
+/* ========== 全局动画 ========== */
+
+/* 脉冲动画 */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.25;
+    }
+}
+
+/* 字母浮动动画 */
+@keyframes letterFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 闪烁动画 */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* 从下方滑入 */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 从左侧滑入 */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 从右侧滑入 */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 缩放淡入 */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 光晕脉冲 */
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: var(--glow-primary);
+    }
+
+    50% {
+        box-shadow: var(--glow-strong);
+    }
+}
+
+/* 旋转动画 */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 渐变移动 */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ========== 工具类 ========== */
+
+/* 淡入效果 */
+.fade-in {
+    animation: fadeIn 0.8s var(--ease-out-cubic) forwards;
+}
+
+/* 滑入效果 */
+.slide-in-up {
+    animation: slideInUp 0.8s var(--ease-out-cubic) forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s var(--ease-out-cubic) forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s var(--ease-out-cubic) forwards;
+}
+
+/* 缩放效果 */
+.scale-in {
+    animation: scaleIn 0.6s var(--ease-out-cubic) forwards;
+}
+
+/* 延迟动画 */
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+.delay-5 {
+    animation-delay: 0.5s;
+}
+
+/* ========== 滚动触发动画 ========== */
+
+/* 默认隐藏等待滚动触发 */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s var(--ease-out-cubic);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 从左侧滚动显示 */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s var(--ease-out-cubic);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 从右侧滚动显示 */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s var(--ease-out-cubic);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 缩放显示 */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s var(--ease-out-cubic);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========== 加载动画 ========== */
+
+.loading {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* ========== 悬停动画增强 ========== */
+
+.hover-lift {
+    transition: transform var(--transition-normal);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.hover-glow {
+    transition: all var(--transition-normal);
+}
+
+.hover-glow:hover {
+    box-shadow: var(--glow-primary);
+}
+
+/* ========== 页面加载动画序列 ========== */
+
+.hero-title .hero-letter {
+    opacity: 0;
+    animation: slideInUp 0.6s var(--ease-out-cubic) forwards;
+}
+
+.hero-title .hero-letter:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hero-title .hero-letter:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.hero-title .hero-letter:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.hero-title .hero-letter:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+.hero-title .hero-letter:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.hero-title .hero-letter:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.hero-title .hero-letter:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.hero-title .hero-letter:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.hero-subtitle {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards 0.6s;
+}
+
+.hero-description {
+    opacity: 0;
+    animation: slideInUp 0.8s var(--ease-out-cubic) forwards 0.8s;
+}
+
+.hero-cta {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards 1s;
+}
+
+.vertical-text {
+    opacity: 0;
+    animation: slideInLeft 0.8s var(--ease-out-cubic) forwards 0.3s;
+}
+
+/* ========== 性能优化 ========== */
+
+/* 使用will-change提示浏览器优化 */
+.project-item,
+.nav-link,
+.cta-button,
+.contact-link {
+    will-change: transform;
+}
+
+/* 减少重绘 */
+.project-preview img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ========== 无障碍支持 ========== */
+
+/* 尊重用户的动画偏好设置 */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale {
+        opacity: 1;
+        transform: none;
+    }
+}

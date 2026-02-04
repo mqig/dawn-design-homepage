@@ -1,0 +1,116 @@
+/* CSS自定义属性 - 设计系统核心 */
+
+:root {
+    /* ========== 颜色系统 ========== */
+    --color-bg: #000000;
+    --color-bg-secondary: #0a0a0a;
+
+    /* 主色 - 荧光蓝 */
+    --color-primary: #00f0ff;
+    --color-primary-rgb: 0, 240, 255;
+
+    /* 文字颜色 */
+    --color-text: #ffffff;
+    --color-text-secondary: #a0a0a0;
+    --color-text-muted: #606060;
+
+    /* ========== 光晕效果 ========== */
+    --glow-primary: 0 0 20px rgba(var(--color-primary-rgb), 0.6);
+    --glow-strong: 0 0 40px rgba(var(--color-primary-rgb), 0.8),
+        0 0 60px rgba(var(--color-primary-rgb), 0.4);
+    --glow-intense: 0 0 30px rgba(var(--color-primary-rgb), 1),
+        0 0 60px rgba(var(--color-primary-rgb), 0.6),
+        0 0 90px rgba(var(--color-primary-rgb), 0.3);
+
+    /* 边缘光晕 */
+    --edge-glow: inset 0 0 100px rgba(var(--color-primary-rgb), 0.1);
+
+    /* ========== 字体系统 ========== */
+    --font-mono: 'Space Mono', 'Courier New', monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* 字体大小 */
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.5rem;
+    /* 24px */
+    --font-size-2xl: 2rem;
+    /* 32px */
+    --font-size-3xl: 3rem;
+    /* 48px */
+    --font-size-4xl: 4rem;
+    /* 64px */
+    --font-size-5xl: 6rem;
+    /* 96px */
+    --font-size-6xl: 8rem;
+    /* 128px */
+
+    /* 字重 */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 800;
+    --font-weight-black: 900;
+
+    /* ========== 间距系统 ========== */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 2rem;
+    /* 32px */
+    --spacing-lg: 4rem;
+    /* 64px */
+    --spacing-xl: 6rem;
+    /* 96px */
+    --spacing-2xl: 8rem;
+    /* 128px */
+    --spacing-3xl: 12rem;
+    /* 192px */
+
+    /* ========== 过渡时间 ========== */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    --transition-slower: 0.8s ease;
+
+    /* 缓动函数 */
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    /* ========== 布局 ========== */
+    --max-width: 1400px;
+    --container-padding: var(--spacing-md);
+
+    /* ========== Z-index层级 ========== */
+    --z-background: -1;
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-nav: 1000;
+    --z-overlay: 2000;
+    --z-modal: 3000;
+
+    /* ========== 边框 ========== */
+    --border-thin: 1px solid rgba(var(--color-primary-rgb), 0.3);
+    --border-thick: 2px solid rgba(var(--color-primary-rgb), 0.5);
+
+    /* ========== 响应式断点 ========== */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+}
+
+/* 深色模式优化（默认） */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}

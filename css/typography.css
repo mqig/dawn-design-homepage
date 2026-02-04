@@ -1,0 +1,188 @@
+/* 字体系统 */
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* Monospace字体类 */
+.mono {
+    font-family: var(--font-mono);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.05em;
+}
+
+/* 标题字体 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-black);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: var(--font-size-6xl);
+}
+
+h2 {
+    font-size: var(--font-size-4xl);
+}
+
+h3 {
+    font-size: var(--font-size-3xl);
+}
+
+h4 {
+    font-size: var(--font-size-2xl);
+}
+
+h5 {
+    font-size: var(--font-size-xl);
+}
+
+h6 {
+    font-size: var(--font-size-lg);
+}
+
+/* 竖排中文文字 */
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'Space Mono', monospace;
+    /* 使用等宽字体模拟像素感 */
+    font-size: 14px;
+    /* 较小的字号增加精致感 */
+    letter-spacing: 0.5em;
+    color: var(--color-primary);
+    /* 使用主色 */
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(0, 217, 255, 0.5);
+    /* 微发光 */
+    font-weight: bold;
+}
+
+/* 文字光晕效果 */
+.glow-text {
+    color: var(--color-primary);
+    text-shadow: var(--glow-primary);
+}
+
+.glow-text-strong {
+    color: var(--color-primary);
+    text-shadow: var(--glow-strong);
+}
+
+/* Hero标题特殊设计 - DAWN DESIGN */
+.hero-title {
+    font-size: var(--font-size-6xl);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    /* 缩小字间距，更加紧凑 */
+    line-height: 1;
+    margin-bottom: var(--spacing-lg);
+    width: 65vw;
+    /* 宽度调整为约65%，使整体视觉更集中 */
+    max-width: 1200px;
+    /* 恢复最大宽度限制 */
+
+    /* 渐变文字效果 */
+    background: linear-gradient(135deg,
+            #00d9ff 0%,
+            #00a3ff 50%,
+            #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* 发光描边效果 */
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 217, 255, 0.3)) drop-shadow(0 0 60px rgba(0, 217, 255, 0.2));
+
+    /* 增强视觉效果 */
+    position: relative;
+}
+
+.hero-title::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(135deg,
+            rgba(0, 217, 255, 0.3) 0%,
+            rgba(0, 163, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(8px);
+}
+
+/* 高亮文字 */
+.highlight {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    position: relative;
+}
+
+/* 文字动画效果 */
+.text-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: textReveal 0.8s var(--ease-out-cubic) forwards;
+}
+
+@keyframes textReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 段落样式 */
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+p.large {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+}
+
+/* 分隔符 */
+.separator {
+    margin: 0 var(--spacing-xs);
+    opacity: 0.4;
+}
+
+/* 响应式字体 */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: var(--font-size-5xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-3xl);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--font-size-4xl);
+    }
+
+    h2 {
+        font-size: var(--font-size-2xl);
+    }
+
+    body {
+        font-size: var(--font-size-sm);
+    }
+}
